@@ -93,4 +93,11 @@ float ler_sensor(void)
 
 ## Licença
 
+No código, usei uma combinação das duas estruturas, cada uma no lugar certo:
+
+while no laço principal do menu. O menu precisa aparecer pelo menos uma vez, antes mesmo de existir qualquer condição para avaliar o usuário só escolhe "sair" depois de ver as opções. Testar a condição depois da execução é essencial aqui: com um while comum, seria preciso duplicar a exibição do menu antes do laço só para ter algo a testar na primeira iteração.
+for na opção "Simular N leituras". Ali o número de repetições já é conhecido antes de começar, então faz sentido testar a condição antes de cada execução — se n for 0, o laço simplesmente não roda nenhuma vez, o que é o comportamento correto.
+
+Resumindo: a diferença entre testar antes ou depois importou exatamente no menu — ali a execução precisa acontecer incondicionalmente na primeira vez, e só depois passa a depender da escolha do usuário.
+
 MIT
